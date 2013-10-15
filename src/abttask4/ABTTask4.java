@@ -21,13 +21,13 @@ public class ABTTask4 {
     public static void main(String[] args) {
         // TODO code application logic here
         Undergraduate me = new Undergraduate();
-        me.setFirstName("Bob");
-        me.setLastName("Newmann");
-        me.setGPA(3.8);
-        me.setMentor("Tadrick");
+        me.setFirstName("Eric");
+        me.setLastName("Cartman");
+        me.setGPA(1.8);
+        me.setMentor("Buffalo");
         me.setStatus("non-resident");
-        me.setStudentID(10631);
-        me.setLevel("sophomore");
+        me.setStudentID(10794);
+        me.setLevel("freshman");
         String meString = me.toString();
         System.out.println(meString);
         try {
