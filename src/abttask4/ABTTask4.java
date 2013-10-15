@@ -20,14 +20,14 @@ public class ABTTask4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Undergraduate me = new Undergraduate();
-        me.setFirstName("Eric");
-        me.setLastName("Cartman");
-        me.setGPA(1.8);
-        me.setMentor("Buffalo");
-        me.setStatus("non-resident");
-        me.setStudentID(10794);
-        me.setLevel("freshman");
+        Parttime me = new Parttime();
+        me.setFirstName("Mister");
+        me.setLastName("Canoe");
+        me.setGPA(3.8);
+        me.setMentor("Cranberry");
+        me.setStatus("nonresident");
+        me.setStudentID(1);
+        me.setCompany("progstuff");
         String meString = me.toString();
         System.out.println(meString);
         try {
