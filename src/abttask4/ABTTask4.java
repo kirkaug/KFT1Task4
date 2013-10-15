@@ -76,13 +76,30 @@ public class ABTTask4 {
     public static void addStudent(){
         
         Scanner studentInfo = new Scanner(System.in);
+        String firstName;
+        String lastName;
+        Integer studentID;
+        String mentor;
+        Double gpa;
+        Integer resInt;
         
-        
+        System.out.print("Student ID: ");
+        studentID = studentInfo.nextInt(); // get student ID from user
+        System.out.print("First Name: ");
+        firstName = studentInfo.next(); // get first name from user
+        System.out.print("Last Name: ");
+        lastName = studentInfo.next(); // get last name from user
+        System.out.print("Mentor: ");
+        mentor = studentInfo.next(); //get mentor from user
+        System.out.print("GPA: ");
+        gpa = studentInfo.nextDouble(); //get GPA from user
+        System.out.print("Resident? (1) Yes (2) No: ");
+        resInt = studentInfo.nextInt(); //get resident status
         
         Scanner studentType = new Scanner(System.in);
         Integer swValue = 0;
         
-        // Ask what the user would like to do
+        // Ask what the student type is
         System.out.println("+++++++++++++++++++");
         System.out.println("+  Student Type   +");
         System.out.println("+++++++++++++++++++");
@@ -99,7 +116,7 @@ public class ABTTask4 {
             
         } catch (NumberFormatException e) {
             
-            System.out.println("Invalid option. Please enter integer");
+            System.out.println("Invalid option. Please enter integer: " + e);
             
         }
         switch (swValue) {
