@@ -6,8 +6,10 @@ package abttask4;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Scanner;
 
 /**
  *
@@ -19,9 +21,64 @@ public class ABTTask4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+  
+
+        Integer swValue = 0;
+        Scanner menuint = new Scanner(System.in);
+
+        do {
+            // Display main menu graphics
+            System.out.println("===============================");
+            System.out.println("|   MAIN MENU                 |");
+            System.out.println("===============================");
+            System.out.println("| Options:                    |");
+            System.out.println("|      1. Add Record          |");
+            System.out.println("|      2. Delete Record       |");
+            System.out.println("|      3. Query student by ID |");
+            System.out.println("|      4. Calc Tuition        |");
+            System.out.println("|      5. Exit                |");
+            System.out.println("===============================");
+            System.out.print(" Select option: ");
+
+            try {
+                swValue = menuint.nextInt();
+                Integer.valueOf(swValue).intValue();
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Not an integer");
+            }
+
+
+            // Switch construct
+            switch (swValue) {
+                case 5:
+                    System.exit(0);
+                case 1:      // add student record
+                    addStudent();
+                    break;
+                case 2:      // delete student record by id
+                    deleteStudent();
+                    break;
+                case 3:
+                    queryStudent();//show media by id
+                    break;
+                case 4:
+                    calcTuition();   // calculate tuition by id
+                    break;
+
+                default:
+                    break;
+
+            }
+        } while (swValue != 5);  // while loop  
+    }
+    
+    public static void addStudent(){
+        
+        Scanner menuOpt = new Scanner(System.in);
         // Ask what the user would like to do
-        System.out.println("What would you like to do? \nAdd record, Query, " +
-                "Delete record, Calculate tuition: ");
+        System.out.println("What would you like to do? \n(A)dd record, (Q)uery, " +
+                "(D)elete record, (C)alculate tuition: ");
         
         Parttime me = new Parttime();
         me.setFirstName("Mister");
@@ -51,5 +108,17 @@ public class ABTTask4 {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void deleteStudent(){
+    
+    }
+    
+    public static void queryStudent(){
+        
+    }
+    
+    public static void calcTuition(){
+        
     }
 }
