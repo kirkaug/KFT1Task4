@@ -19,7 +19,10 @@ public class ABTTask4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Ask what the user would like to do
+        System.out.println("What would you like to do? \nAdd record, Query, " +
+                "Delete record, Calculate tuition: ");
+        
         Parttime me = new Parttime();
         me.setFirstName("Mister");
         me.setLastName("Canoe");
