@@ -75,11 +75,41 @@ public class ABTTask4 {
     
     public static void addStudent(){
         
-        Scanner menuOpt = new Scanner(System.in);
-        // Ask what the user would like to do
-        System.out.println("What would you like to do? \n(A)dd record, (Q)uery, " +
-                "(D)elete record, (C)alculate tuition: ");
+        Scanner studentInfo = new Scanner(System.in);
         
+        
+        
+        Scanner studentType = new Scanner(System.in);
+        Integer swValue = 0;
+        
+        // Ask what the user would like to do
+        System.out.println("+++++++++++++++++++");
+        System.out.println("+  Student Type   +");
+        System.out.println("+++++++++++++++++++");
+        System.out.println("+ 1. Undergrad    +");
+        System.out.println("+ 2. Graduate     +");
+        System.out.println("+ 3. Parttime     +");
+        System.out.println("+++++++++++++++++++");
+        System.out.print(" Select option: ");
+        
+        try {
+            
+            swValue = studentType.nextInt();
+            Integer.valueOf(swValue).intValue();
+            
+        } catch (NumberFormatException e) {
+            
+            System.out.println("Invalid option. Please enter integer");
+            
+        }
+        switch (swValue) {
+            case 1:
+                addUndergrad();
+            case 2:
+                addGraduate();
+            case 3:
+                addParttime();
+        }
         Parttime me = new Parttime();
         me.setFirstName("Mister");
         me.setLastName("Canoe");
@@ -108,6 +138,18 @@ public class ABTTask4 {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void addUndergrad(){
+        
+    }
+    
+    public static void addGraduate(){
+        
+    }
+    
+    public static void addParttime(){
+        
     }
     
     public static void deleteStudent(){
