@@ -21,7 +21,7 @@ public class ABTTask4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-  
+
 
         Integer swValue = 0;
         Scanner menuint = new Scanner(System.in);
@@ -72,9 +72,9 @@ public class ABTTask4 {
             }
         } while (swValue != 5);  // while loop  
     }
-    
-    public static void addStudent(){
-        
+
+    public static void addStudent() {
+
         Scanner studentInfo = new Scanner(System.in);
         String firstName;
         String lastName;
@@ -82,7 +82,7 @@ public class ABTTask4 {
         String mentor;
         Double gpa;
         Integer resInt;
-        
+
         System.out.print("Student ID: ");
         studentID = studentInfo.nextInt(); // get student ID from user
         System.out.print("First Name: ");
@@ -95,10 +95,10 @@ public class ABTTask4 {
         gpa = studentInfo.nextDouble(); //get GPA from user
         System.out.print("Resident? (1) Yes (2) No: ");
         resInt = studentInfo.nextInt(); //get resident status
-        
+
         Scanner studentType = new Scanner(System.in);
         Integer swValue = 0;
-        
+
         // Ask what the student type is
         System.out.println("+++++++++++++++++++");
         System.out.println("+  Student Type   +");
@@ -108,76 +108,125 @@ public class ABTTask4 {
         System.out.println("+ 3. Parttime     +");
         System.out.println("+++++++++++++++++++");
         System.out.print(" Select option: ");
-        
+
         try {
-            
+
             swValue = studentType.nextInt();
             Integer.valueOf(swValue).intValue();
-            
+
         } catch (NumberFormatException e) {
-            
+
             System.out.println("Invalid option. Please enter integer: " + e);
-            
+
         }
         switch (swValue) {
             case 1:
-                addUndergrad();
+                System.out.print("Company: ");
+                String company = studentInfo.next(); //get company from user
+                
+                // Put collected info into Parttime Student Object
+                Parttime mePT = new Parttime();
+                mePT.setFirstName(firstName);
+                mePT.setLastName(lastName);
+                mePT.setGPA(gpa);
+                mePT.setMentor(mentor);
+                switch (resInt) {
+                    case 1:
+                        mePT.setStatus("resident");
+                    case 2:
+                        mePT.setStatus("nonresident");
+                }
+                mePT.setStudentID(1);
+                mePT.setCompany("progstuff");
+                String mePTString = mePT.toString();
+                System.out.println(mePTString);
+                try {
+                    System.out.println(mePT.add());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    System.out.println(mePT.query());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                }
             case 2:
-                addGraduate();
+                Graduate meGrad = new Graduate();
+                meGrad.setFirstName("Mister");
+                meGrad.setLastName("Canoe");
+                meGrad.setGPA(3.8);
+                meGrad.setMentor("Cranberry");
+                meGrad.setStatus("nonresident");
+                meGrad.setStudentID(1);
+                meGrad.setThesisAdvisor("bob");
+                meGrad.setThesisTitle("my thesis");
+                String meGradString = meGrad.toString();
+                System.out.println(meGradString);
+                try {
+                    System.out.println(meGrad.add());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    System.out.println(meGrad.query());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                }
             case 3:
-                addParttime();
+                Undergraduate meUndergrad = new Undergraduate();
+                meUndergrad.setFirstName("Mister");
+                meUndergrad.setLastName("Canoe");
+                meUndergrad.setGPA(3.8);
+                meUndergrad.setMentor("Cranberry");
+                meUndergrad.setStatus("nonresident");
+                meUndergrad.setStudentID(1);
+                meUndergrad.setLevel("junior");
+                String meUndergradString = meUndergrad.toString();
+                System.out.println(meUndergradString);
+                try {
+                    System.out.println(meUndergrad.add());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    System.out.println(meUndergrad.query());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
-        Parttime me = new Parttime();
-        me.setFirstName("Mister");
-        me.setLastName("Canoe");
-        me.setGPA(3.8);
-        me.setMentor("Cranberry");
-        me.setStatus("nonresident");
-        me.setStudentID(1);
-        me.setCompany("progstuff");
-        String meString = me.toString();
-        System.out.println(meString);
-        try {
-            System.out.println(me.add());
-        } catch (SQLException ex) {
-            Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            System.out.println(me.query());
-        } catch (SQLException ex) {
-            Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }
-    
-    public static void addUndergrad(){
-        
+
+    public static void deleteStudent() {
     }
-    
-    public static void addGraduate(){
-        
+
+    public static void queryStudent() {
     }
-    
-    public static void addParttime(){
-        
-    }
-    
-    public static void deleteStudent(){
-    
-    }
-    
-    public static void queryStudent(){
-        
-    }
-    
-    public static void calcTuition(){
-        
+
+    public static void calcTuition() {
     }
 }
