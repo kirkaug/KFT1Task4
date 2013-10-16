@@ -103,9 +103,9 @@ public class ABTTask4 {
         System.out.println("+++++++++++++++++++");
         System.out.println("+  Student Type   +");
         System.out.println("+++++++++++++++++++");
-        System.out.println("+ 1. Undergrad    +");
+        System.out.println("+ 1. Parttime     +");
         System.out.println("+ 2. Graduate     +");
-        System.out.println("+ 3. Parttime     +");
+        System.out.println("+ 3. Undergrad    +");
         System.out.println("+++++++++++++++++++");
         System.out.print(" Select option: ");
 
@@ -123,7 +123,7 @@ public class ABTTask4 {
             case 1:
                 System.out.print("Company: ");
                 String company = studentInfo.next(); //get company from user
-                
+
                 // Put collected info into Parttime Student Object
                 Parttime mePT = new Parttime();
                 mePT.setFirstName(firstName);
@@ -133,11 +133,13 @@ public class ABTTask4 {
                 switch (resInt) {
                     case 1:
                         mePT.setStatus("resident");
+                        break;
                     case 2:
                         mePT.setStatus("nonresident");
+                        break;
                 }
-                mePT.setStudentID(1);
-                mePT.setCompany("progstuff");
+                mePT.setStudentID(studentID);
+                mePT.setCompany(company);
                 String mePTString = mePT.toString();
                 System.out.println(mePTString);
                 try {
@@ -158,16 +160,30 @@ public class ABTTask4 {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                break;
             case 2:
+                System.out.print("Thesis Advisor: ");
+                String thesisAdvisor = studentInfo.next();
+                System.out.print("Thesis Title: ");
+                String thesisTitle = studentInfo.next();
+                
+                //place info into a graduate student object
                 Graduate meGrad = new Graduate();
-                meGrad.setFirstName("Mister");
-                meGrad.setLastName("Canoe");
-                meGrad.setGPA(3.8);
-                meGrad.setMentor("Cranberry");
-                meGrad.setStatus("nonresident");
-                meGrad.setStudentID(1);
-                meGrad.setThesisAdvisor("bob");
-                meGrad.setThesisTitle("my thesis");
+                meGrad.setFirstName(firstName);
+                meGrad.setLastName(lastName);
+                meGrad.setGPA(gpa);
+                meGrad.setMentor(mentor);
+                switch (resInt) {
+                    case 1:
+                        meGrad.setStatus("resident");
+                        break;
+                    case 2:
+                        meGrad.setStatus("nonresident");
+                        break;
+                }
+                meGrad.setStudentID(studentID);
+                meGrad.setThesisAdvisor(thesisAdvisor);
+                meGrad.setThesisTitle(thesisTitle);
                 String meGradString = meGrad.toString();
                 System.out.println(meGradString);
                 try {
@@ -188,15 +204,25 @@ public class ABTTask4 {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                break;
             case 3:
+                System.out.print("Student Level: ");
+                String level = studentInfo.next();
+                
+                //student info to undergrad object
                 Undergraduate meUndergrad = new Undergraduate();
-                meUndergrad.setFirstName("Mister");
-                meUndergrad.setLastName("Canoe");
-                meUndergrad.setGPA(3.8);
-                meUndergrad.setMentor("Cranberry");
-                meUndergrad.setStatus("nonresident");
-                meUndergrad.setStudentID(1);
-                meUndergrad.setLevel("junior");
+                meUndergrad.setFirstName(firstName);
+                meUndergrad.setLastName(lastName);
+                meUndergrad.setGPA(gpa);
+                meUndergrad.setMentor(mentor);
+                switch (resInt) {
+                    case 1:
+                        meUndergrad.setStatus("resident");
+                    case 2:
+                        meUndergrad.setStatus("nonresident");
+                }
+                meUndergrad.setStudentID(studentID);
+                meUndergrad.setLevel(level);
                 String meUndergradString = meUndergrad.toString();
                 System.out.println(meUndergradString);
                 try {
@@ -217,6 +243,9 @@ public class ABTTask4 {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(ABTTask4.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                break;
+            default:
+                break;
         }
 
     }
